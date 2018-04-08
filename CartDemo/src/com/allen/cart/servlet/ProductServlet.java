@@ -1,5 +1,7 @@
 package com.allen.cart.servlet;
 
+import com.allen.cart.data.LocalCache;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -29,8 +31,9 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        req.setAttribute("products",null);
-        req.getRequestDispatcher("/WEB-INF/views/biz/list.jsp");
+        req.setAttribute("products",LocalCache.getProductList());
+        req.getRequestDispatcher("/WEB-INF/view/biz/list.jsp").forward(req,res);
+
     }
 
     @Override
