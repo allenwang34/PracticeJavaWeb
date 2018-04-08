@@ -1,6 +1,8 @@
 package com.allen.cart.servlet;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,5 +24,22 @@ public class ProductServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
+
+
+    @Override
+    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+        req.setAttribute("products",null);
+        req.getRequestDispatcher("/WEB-INF/views/biz/list.jsp");
+    }
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
     }
 }

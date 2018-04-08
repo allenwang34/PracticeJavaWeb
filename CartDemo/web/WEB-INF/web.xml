@@ -8,7 +8,17 @@
             <welcome-file>/index.jsp</welcome-file>
         </welcome-file-list>
     
-    
+
+        <servlet>
+            <servlet-name>ProductServlet</servlet-name>
+            <servlet-class>com.allen.cart.servlet.ProductServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ProductServlet</servlet-name>
+            <url-pattern>/product/list.do</url-pattern>
+        </servlet-mapping>
+
+
         <filter>
             <filter-name>CharSetEncodingFilter</filter-name>
             <filter-class>com.allen.cart.filter.CharSetEncodingFilter</filter-class>
