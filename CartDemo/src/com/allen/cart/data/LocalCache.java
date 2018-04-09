@@ -14,6 +14,7 @@ import java.util.Map;
  */
 public class LocalCache {
     private static Map<Long,Product> productMap = new HashMap<Long,Product>();
+    private static Map<Long,Cart> cartMap = new HashMap<Long,Cart>();
 
     static {
         productMap.put(1l, new Product(1l, "HTML/CSS", "HTML+CSS基础课程", "HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义", "初级", 219));
@@ -47,5 +48,5 @@ public class LocalCache {
         return new ArrayList<Product>(productMap.values());
     }
 
-
+    public static Product getProduct(Long productID) { return productMap.get(productID); }
 }

@@ -1,6 +1,7 @@
 package com.allen.cart.servlet;
 
 import com.allen.cart.data.LocalCache;
+import com.allen.cart.data.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -10,16 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
-
-/**
- *
- * 课程（商品）控制器
- *
- */
-
-@WebServlet(name = "ProductServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet(name = "CartServlet")
+public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -29,19 +24,12 @@ public class ProductServlet extends HttpServlet {
     }
 
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        req.setAttribute("products",LocalCache.getProductList());
-        req.getRequestDispatcher("/WEB-INF/view/biz/list.jsp").forward(req,res);
-    }
-
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-    }
-
-    @Override
-    public void destroy() {
-        super.destroy();
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (Objects.equals("/cart/cart.do",req.getServletPath())) {
+            String productID = req.getParameter("productID");
+            if (productID != null) {
+                Product addedProduct = LocalCache.getProduct(Long.valueOf(productID));
+            }
+        }
     }
 }

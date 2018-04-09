@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="course-card-bk">
-            <img src="../../../img/bk1.jpg" alt="">
+            <img src="${pageContext.request.contextPath}/img/bk1.jpg" alt="">
           </div>
         </div>
       </c:forEach>

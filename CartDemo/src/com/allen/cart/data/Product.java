@@ -36,6 +36,8 @@ public class Product {
      */
     private int price;
 
+    public Product(){}
+
     public Product(Long id, String tag, String name, String level, String desc, int price) {
         this.id = id;
         this.tag = tag;

@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <title>购物车</title>
-  <link rel="stylesheet" href="../../../css/shopcar.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/shopcar.css">
 </head>
 <body>
 <!-- header区域 -->
