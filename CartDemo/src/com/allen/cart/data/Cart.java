@@ -1,13 +1,64 @@
 package com.allen.cart.data;
 
+
+/**
+ *
+ * 购物车类
+ *
+ */
+
 public class Cart {
 
+    /**
+     * 购物车ID
+     */
     private long cartID;
+    /**
+     *购物车中商品ID
+     */
     private long productID;
+    /**
+     * 购物车中商品名称
+     */
     private String productName;
+    /**
+     * 购物车中商品单价
+     */
     private int productPrice;
+    /**
+     * 购物车中商品数量
+     */
     private int productCount;
-    private int totalCount;
+    /**
+     * 购物车中商品总价
+     */
+    private int totalPrice;
+
+    public Cart() {}
+
+    public Cart(long cartID, long productID, String productName, int productPrice, int productCount) {
+        this.cartID = cartID;
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productCount = productCount;
+        this.totalPrice = productPrice*productCount;
+    }
+
+    public void incrProdcut() {
+        productCount++;
+        totalPrice = productCount*productPrice;
+    }
+
+    public boolean decrProduct() {
+        if (productCount<=0) {
+            return false;
+        } else {
+            productCount--;
+            totalPrice=productCount*productPrice;
+            return true;
+        }
+    }
 
     public long getCartID() {
         return cartID;
@@ -49,11 +100,13 @@ public class Cart {
         this.productCount = productCount;
     }
 
-    public int getTotalCount() {
-        return totalCount;
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setTotalPrice(int totalCount) {
+        this.totalPrice = totalCount;
     }
+
+
 }

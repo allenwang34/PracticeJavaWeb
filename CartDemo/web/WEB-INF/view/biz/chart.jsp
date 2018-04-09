@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>购物车</title>
@@ -13,15 +12,15 @@
 <header class="header">
   <div class="logo"></div>
   <div class="nav">
-    <a href="" class="nav__item">课程</a>
+    <a href="/product/list.do" class="nav__item">课程</a>
     <a href="" class="nav__item nav__item_icon_new">职业路径<i class="icon_new"></i></a>
     <a href="" class="nav__item">实战</a>
     <a href="" class="nav__item">猿问</a>
     <a href="" class="nav__item">手记</a>
   </div>
   <div class="profile">
-    <a href="" class="profile__item profile__car"></a>
-    <a href="" class="profile__item profile__message"></a>
+    <a href="/cart/list.do" class="profile__item profile__car"></a>
+    <a href="/browse/list.do" class="profile__item profile__message"></a>
     <a href="" class="profile__item profile__ava"></a>
   </div>
   <div class="search"><input type="text" class="search_input"><a href="" class="search_submit"></a></div>
@@ -31,7 +30,7 @@
   <div>我的购物车</div>
 </div>
 <!-- goods区域 -->
-<form action="" id="cartBody">
+<form action="/cart/settlement.do" id="cartBody">
   <div class="cart-panel">
     <div class="hd">
       <ul class="order-title">
@@ -44,134 +43,50 @@
       </ul>
     </div>
     <div class="bd">
-      <!-- 商品列表 -->
-      <ul class="order-list">
-        <li><input type="checkbox" class="check" checked></li>
-        <li class="img-box">
-          <a href="http://www.imooc.com">
-            <img src="./img/g1.jpg" alt="">
-          </a>
-        </li>
-        <li class="product">
-          <a href="http://www.imooc.com">
-            <span>前端小白成长记</span>
-          </a>
-        </li>
-        <li class="total-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> </span>
-        </li>
-        <li class="unit-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> 396</span>
-        </li>
-        <li class="number">
-          <div class="input-num">
-            <a>-</a>
-            <input type="text" value="1" class="num">
-            <a>+</a>
-          </div>
-        </li>
-        <li class="operate"><a href="">删除</a></li>
-      </ul>
-      <ul class="order-list">
-        <li><input type="checkbox" class="check"></li>
-        <li class="img-box">
-          <a href="http://www.imooc.com">
-            <img src="./img/g2.jpg" alt="">
-          </a>
-        </li>
-        <li class="product">
-          <a href="http://www.imooc.com">
-            <span>前端小白成长记</span>
-          </a>
-        </li>
-        <li class="total-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> 396</span>
-        </li>
-        <li class="unit-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> 396</span>
-        </li>
-        <li class="number">
-          <div class="input-num">
-            <a>-</a>
-            <input type="text" value="1" class="num">
-            <a>+</a>
-          </div>
-        </li>
-        <li class="operate"><a href="">删除</a></li>
-      </ul>
-      <ul class="order-list">
-        <li><input type="checkbox" class="check" checked></li>
-        <li class="img-box">
-          <a href="http://www.imooc.com">
-            <img src="./img/g1.jpg" alt="">
-          </a>
-        </li>
-        <li class="product">
-          <a href="http://www.imooc.com">
-            <span>前端小白成长记</span>
-          </a>
-        </li>
-        <li class="total-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> </span>
-        </li>
-        <li class="unit-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> 396</span>
-        </li>
-        <li class="number">
-          <div class="input-num">
-            <a>-</a>
-            <input type="text" value="1" class="num">
-            <a>+</a>
-          </div>
-        </li>
-        <li class="operate"><a href="">删除</a></li>
-      </ul>
-      <ul class="order-list">
-        <li><input type="checkbox" class="check" checked></li>
-        <li class="img-box">
-          <a href="http://www.imooc.com">
-            <img src="./img/g1.jpg" alt="">
-          </a>
-        </li>
-        <li class="product">
-          <a href="http://www.imooc.com">
-            <span>前端小白成长记</span>
-          </a>
-        </li>
-        <li class="total-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> </span>
-        </li>
-        <li class="unit-price">
-          <span class="price-sign">¥</span>
-          <span class="price-num"> 396</span>
-        </li>
-        <li class="number">
-          <div class="input-num">
-            <a>-</a>
-            <input type="text" value="1" class="num">
-            <a>+</a>
-          </div>
-        </li>
-        <li class="operate"><a href="">删除</a></li>
-      </ul>
+      <!-- 购物车列表 -->
+      <c:forEach items="${carts}" var="cart">
+        <ul class="order-list">
+          <li><input type="checkbox" class="check" checked ></li>
+          <input type="hidden" name="carts" value="${cart.id}">
+          <li class="img-box">
+            <a href="http://www.imooc.com">
+              <img src="../../../img/g1.jpg" alt="">
+            </a>
+          </li>
+          <li class="product">
+            <a href="http://www.imooc.com">
+              <span>${cart.name}-${cart.id}</span>
+            </a>
+          </li>
+          <li class="total-price">
+            <span class="price-sign"></span>
+            <span class="price-num"><fmt:formatNumber value="${cart.totalPrice}" type="currency"/></span>
+          </li>
+          <li class="unit-price">
+            <span class="price-sign"></span>
+            <span class="price-num"><fmt:formatNumber value="${cart.price}" type="currency"/></span>
+          </li>
+          <li class="number">
+            <div class="input-num">
+              <a href="/cart/decr.do?productId=${cart.productId}">-</a>
+              <input type="text" value="${cart.count}" class="num">
+              <a href="/cart/incr.do?productId=${cart.productId}">+</a>
+            </div>
+          </li>
+          <li class="operate"><a href="/cart/delete.do?productId=${cart.id}">删除</a></li>
+        </ul>
+      </c:forEach>
     </div>
   </div>
   <!-- 结算栏 -->
   <div class="pay-bar">
-    <div class="pay-info">
-      <div class="price">
-        <span class="price-sign">¥</span>
-        <span class="price-num pay-money"></span>
-      </div>
-      <span>应付金额：</span>
-    </div>
+    <%--<div class="pay-info">--%>
+    <%--<div class="price">--%>
+    <%--<span class="price-sign">¥</span>--%>
+    <%--<span class="price-num pay-money"></span>--%>
+    <%--</div>--%>
+    <%--<span>应付金额：</span>--%>
+    <%--</div>--%>
     <button>去结算</button>
   </div>
 </form>

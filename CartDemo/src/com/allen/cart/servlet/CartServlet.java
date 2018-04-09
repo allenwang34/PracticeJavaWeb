@@ -15,13 +15,6 @@ import java.util.Objects;
 
 @WebServlet(name = "CartServlet")
 public class CartServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,7 +22,12 @@ public class CartServlet extends HttpServlet {
             String productID = req.getParameter("productID");
             if (productID != null) {
                 Product addedProduct = LocalCache.getProduct(Long.valueOf(productID));
+                LocalCache.addCart(addedProduct);
             }
+            resp.sendRedirect("/cart/cart.do");
+        } else if (Objects.equals("/cart/list.do",req.getServletPath())) {
+                req.setAttribute("carts",LocalCache.getCarts());
+                req.getRequestDispatcher("/WEB-INF/view/biz/chart.jsp").forward(req,resp);
         }
     }
 }

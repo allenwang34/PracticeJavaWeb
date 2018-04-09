@@ -49,4 +49,16 @@ public class LocalCache {
     }
 
     public static Product getProduct(Long productID) { return productMap.get(productID); }
+
+    public static void addCart(Product product) {
+        if (!cartMap.containsValue(product)) {
+            cartMap.put(product.getId(),new Cart(product.getId(),product.getId(),product.getName(),product.getPrice(),1));
+        } else {
+            cartMap.get(product.getId()).incrProdcut();
+        }
+    }
+
+    public static List<Cart> getCarts() {
+        return new ArrayList<Cart>(cartMap.values());
+    }
 }

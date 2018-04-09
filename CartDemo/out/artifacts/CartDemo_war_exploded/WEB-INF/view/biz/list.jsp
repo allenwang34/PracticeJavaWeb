@@ -100,18 +100,18 @@
               <div class="course-card-bottom">
                 <span>${product.level}</span>
                 <span>
-                                    <a href="/cart/cart.do?productId=${product.id}">
+                                    <a href="/cart/list.do?productId=${product.id}">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </a>
                                 </span>
-                <a href="/favorite/favorite.do?productId=${product.id}">
+               <!-- <a href="/favorite/favorite.do?productId=${product.id}">
                   <span></span>
-                </a>
+                </a>-->
               </div>
             </div>
           </div>
           <div class="course-card-bk">
-            <img src="${pageContext.request.contextPath}/img/bk1.jpg" alt="">
+            <img src="../../../img/bk1.jpg" alt="">
           </div>
         </div>
       </c:forEach>
