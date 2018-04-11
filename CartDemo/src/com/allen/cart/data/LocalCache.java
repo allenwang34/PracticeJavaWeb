@@ -53,8 +53,10 @@ public class LocalCache {
     public static void addCart(Product product) {
         if (!cartMap.containsValue(product)) {
             cartMap.put(product.getId(),new Cart(product.getId(),product.getId(),product.getName(),product.getPrice(),1));
+            return;
         } else {
             cartMap.get(product.getId()).incrProdcut();
+            return;
         }
     }
 

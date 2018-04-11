@@ -32,15 +32,15 @@
 <header class="header">
   <div class="logo"></div>
   <div class="nav">
-    <a href="/product/list.do" class="nav__item nav__course">课程</a>
+    <a href="<%=request.getContextPath()%>/product/list.do" class="nav__item nav__course">课程</a>
     <a href="" class="nav__item nav__item_icon_new">职业路径<i class="icon_new"></i></a>
     <a href="" class="nav__item">实战</a>
     <a href="" class="nav__item">猿问</a>
     <a href="" class="nav__item">手记</a>
   </div>
   <div class="profile">
-    <a href="/cart/list.do" class="profile__item profile__car"></a>
-    <a href="/browse/list.do" class="profile__item profile__message"></a>
+    <a href="<%=request.getContextPath()%>/cart/list.do" class="profile__item profile__car"></a>
+    <a href="<%=request.getContextPath()%>/browse/list.do" class="profile__item profile__message"></a>
     <a href="" class="profile__item profile__ava"></a>
   </div>
   <form id="searchForm" method="post" action="/product/list.do">
@@ -64,22 +64,22 @@
         <%--<a href="/product/list.do?page=${nextPage}">下一页</a>--%>
         <%--<a href="/product/list.do?page=${totalPage}">尾页</a>--%>
 
-        <form method="post" action="/product/list.do" style="display: inline">
+        <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
           <input type="hidden" name="page" value="1">
           <input type="hidden" name="title" value="${title}">
           <input type="submit" value="首页" class="btn">
         </form>
-        <form method="post" action="/product/list.do" style="display: inline">
+        <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
           <input type="hidden" name="page" value="${prePage}">
           <input type="hidden" name="title" value="${title}">
           <input type="submit" value="上一页" class="btn">
         </form>
-        <form method="post" action="/product/list.do" style="display: inline">
+        <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
           <input type="hidden" name="page" value="${nextPage}">
           <input type="hidden" name="title" value="${title}">
           <input type="submit" value="下一页" class="btn">
         </form>
-        <form method="post" action="/product/list.do" style="display: inline">
+        <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
           <input type="hidden" name="page" value="${totalPage}">
           <input type="hidden" name="title" value="${title}">
           <input type="submit" value="尾页" class="btn">
@@ -93,14 +93,14 @@
               <span>${product.tag}</span>
             </div>
             <div class="course-card-content">
-              <a href="/detail/detail.do?productId=${product.id}">
+              <a href="<%=request.getContextPath()%>/detail/detail.do?productId=${product.id}">
                 <h3>${product.name}-${product.id}</h3>
                 <p>${product.desc}</p>
               </a>
               <div class="course-card-bottom">
                 <span>${product.level}</span>
                 <span>
-                                    <a href="/cart/list.do?productId=${product.id}">
+                                    <a href="<%=request.getContextPath()%>/cart/cart.do?productId=${product.id}">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </a>
                                 </span>
@@ -122,22 +122,22 @@
       <%--<a href="/product/list.do?page=${nextPage}">下一页</a>--%>
       <%--<a href="/product/list.do?page=${totalPage}">尾页</a>--%>
 
-      <form method="post" action="/product/list.do" style="display: inline">
+      <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
         <input type="hidden" name="page" value="1">
         <input type="hidden" name="title" value="${title}">
         <input type="submit" value="首页" class="btn">
       </form>
-      <form method="post" action="/product/list.do" style="display: inline">
+      <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
         <input type="hidden" name="page" value="${prePage}">
         <input type="hidden" name="title" value="${title}">
         <input type="submit" value="上一页" class="btn">
       </form>
-      <form method="post" action="/product/list.do" style="display: inline">
+      <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
         <input type="hidden" name="page" value="${nextPage}">
         <input type="hidden" name="title" value="${title}">
         <input type="submit" value="下一页" class="btn">
       </form>
-      <form method="post" action="/product/list.do" style="display: inline">
+      <form method="post" action="<%=request.getContextPath()%>/product/list.do" style="display: inline">
         <input type="hidden" name="page" value="${totalPage}">
         <input type="hidden" name="title" value="${title}">
         <input type="submit" value="尾页" class="btn">

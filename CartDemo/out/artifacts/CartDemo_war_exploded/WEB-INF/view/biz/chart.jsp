@@ -12,15 +12,15 @@
 <header class="header">
   <div class="logo"></div>
   <div class="nav">
-    <a href="/product/list.do" class="nav__item">课程</a>
+    <a href="<%=request.getContextPath()%>/product/list.do" class="nav__item">课程</a>
     <a href="" class="nav__item nav__item_icon_new">职业路径<i class="icon_new"></i></a>
     <a href="" class="nav__item">实战</a>
     <a href="" class="nav__item">猿问</a>
     <a href="" class="nav__item">手记</a>
   </div>
   <div class="profile">
-    <a href="/cart/list.do" class="profile__item profile__car"></a>
-    <a href="/browse/list.do" class="profile__item profile__message"></a>
+    <a href="<%=request.getContextPath()%>/cart/list.do" class="profile__item profile__car"></a>
+    <a href="<%=request.getContextPath()%>/browse/list.do" class="profile__item profile__message"></a>
     <a href="" class="profile__item profile__ava"></a>
   </div>
   <div class="search"><input type="text" class="search_input"><a href="" class="search_submit"></a></div>
@@ -68,12 +68,12 @@
           </li>
           <li class="number">
             <div class="input-num">
-              <a href="/cart/decr.do?productId=${cart.productId}">-</a>
+              <a href="<%=request.getContextPath()%>/cart/decr.do?productId=${cart.productId}">-</a>
               <input type="text" value="${cart.count}" class="num">
-              <a href="/cart/incr.do?productId=${cart.productId}">+</a>
+              <a href="<%=request.getContextPath()%>/cart/incr.do?productId=${cart.productId}">+</a>
             </div>
           </li>
-          <li class="operate"><a href="/cart/delete.do?productId=${cart.id}">删除</a></li>
+          <li class="operate"><a href="<%=request.getContextPath()%>/cart/delete.do?productId=${cart.id}">删除</a></li>
         </ul>
       </c:forEach>
     </div>
